@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.container {
+    background: rgba(255, 243, 225, 0.89);
+    padding: 30px;
+    width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 18px;
+}
+
+@media (min-width: 700px) {
+    .container {
+        width: 600px;
+    }
+}
