@@ -2,10 +2,14 @@ import React from "react";
 import "./style.css";
 
 const Tasks = (props) => {
-  console.log("Tasks data:", props.tasks);
+  console.log("Tasks data:", props.tasks, "hideDone:", props.hideDone);
+  const tasksToRender = props.hideDone
+    ? props.tasks.filter((task) => !task.done)
+    : props.tasks;
+
   return (
     <ul className="taskList">
-      {props.tasks.map((task, index) => {
+      {tasksToRender.map((task, index) => {
         console.log("Task:", task, "done:", task.done);
         return (
           <li key={task.id || index} className="todo-item">
