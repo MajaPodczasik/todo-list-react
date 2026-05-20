@@ -1,11 +1,12 @@
 /* Task list and task-item styles */
-.task-controls {
+
+.tasks__controls {
     display: flex;
     gap: 8px;
     margin-bottom: 12px;
 }
 
-.task-controls.hidden {
+.tasks__controls.hidden {
     display: none !important;
 }
 
@@ -29,7 +30,7 @@
 }
 
 .tasks__item--hidden {
-    display: none;
+    display: none !important;
 }
 
 .tasks__content {
@@ -38,17 +39,17 @@
     font-size: 16px;
 }
 
-.tasks__content--done {
-    text-decoration: line-through;
-    color: #888;
-    opacity: 0.95;
-}
-
 .tasks__buttons {
     display: flex;
     gap: 8px;
     flex-shrink: 0;
     justify-self: end;
+}
+
+.tasks__content--done {
+    text-decoration: line-through;
+    color: #888;
+    opacity: 0.95;
 }
 
 @media (max-width: 480px) {
@@ -62,7 +63,7 @@
     }
 }
 
-.taskDone {
+.tasks__button {
     padding: 8px 16px;
     cursor: pointer;
     border: none;
@@ -75,27 +76,14 @@
     color: #2c2c2c;
 }
 
-.taskDone:hover {
+.tasks__button:hover {
     background-color: #b69d81b4;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transform: translateY(-1px);
 }
 
-.taskRemove {
-    padding: 8px 16px;
-    cursor: pointer;
-    border: none;
-    background-color: #f0d8bab4;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    color: #2c2c2c;
+.tasks__button--toggleDone {
 }
 
-.taskRemove:hover {
-    background-color: #b69d81b4;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transform: translateY(-1px);
+.tasks__button--remove {
 }
