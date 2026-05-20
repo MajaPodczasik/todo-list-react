@@ -1,30 +1,30 @@
 import React from "react";
 import "./style.css";
 
-const Tasks = (props) => {
-  console.log("Tasks data:", props.tasks, "hideDone:", props.hideDone);
-  const tasksToRender = props.hideDone
-    ? props.tasks.filter((task) => !task.done)
-    : props.tasks;
-
-  return (
-    <ul className="taskList">
-      {tasksToRender.map((task, index) => {
-        console.log("Task:", task, "done:", task.done);
-        return (
-          <li key={task.id || index} className="todo-item">
-            <span className={`todo-item__text${task.done ? " doneTask" : ""}`}>
-              {task.content}
-            </span>
-            <div className="todo-item__actions">
-              <button className="taskDone">✓</button>
-              <button className="taskRemove">remove</button>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
+const Tasks = ({ tasks, hideDone, removeTask }) => (
+  <ul className="tasks">
+    {tasks.map((task) => (
+      <li
+        key={task.id}
+        className={`tasks__item${task.done && hideDone ? " tasks__item--hidden" : ""}`}
+      >
+        <span className={`tasks__content${task.done ? " tasks__content--done" : ""}`}>
+          {task.content}
+        </span>
+        <div className="tasks__buttons">
+          <button className="tasks__button tasks__button--toggleDone">
+            {task.done ? "✓" : ""}
+          </button>
+          <button
+            className="tasks__button tasks__button--remove"
+            onClick={() => removeTask(task.id)}
+          >
+            🗑️
+          </button>
+        </div>
+      </li>
+    ))}
+  </ul>
+);
 
 export default Tasks;
