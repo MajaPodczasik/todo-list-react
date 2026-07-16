@@ -1,10 +1,10 @@
 import React from "react";
-import "./style.css";
+import { Wrapper } from "./styled";
 
-const Container = ({children}) => (
-    <main className="container">
+const Container = ({ children }) => (
+    <Wrapper as="main" className="container">
         {children}
-    </main>
-)
+    </Wrapper>
+);
 
 export default Container;
